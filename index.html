@@ -5,16 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Mushvig Shukurov">
     <title>Marquee - Custom Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container"> 
         <div class="col">
-            <p>PyTerminator - Shukurov Mushvig</p>
+            <p id="par_1">PyTerminator - Shukurov Mushvig</p>
         </div>
         <div class="col">
-            <p>PyTerminator - Shukurov Mushvig</p>
+            <p id="par_2">PyTerminator - Shukurov Mushvig</p>
+        </div>
+        <div class="play-btn" data-val="1">
+            <i class="fa-solid fa-play"></i> 
         </div>
     </div>
+
+    <script>
+        let par_1 = document.getElementById("par_1")
+        let par_2 = document.getElementById("par_2")
+        let play_pause_btn = document.querySelector(".play-btn")
+        play_pause_btn.addEventListener("click", function(e){
+            if(play_pause_btn.getAttribute("data-val")=='1'){ 
+                play_pause_btn.setAttribute("data-val", "0")
+                play_pause_btn.innerHTML = '<i class="fa-solid fa-pause"></i>'
+                par_1.style.animationPlayState = 'running';
+                par_2.style.animationPlayState = 'running';
+            } else {
+                play_pause_btn.innerHTML = '<i class="fa-solid fa-play"></i>'
+                play_pause_btn.setAttribute("data-val", "1") 
+                par_1.style.animationPlayState = 'paused';
+                par_2.style.animationPlayState = 'paused';
+            }
+        }) 
+    </script>
 </body>
 </html>
